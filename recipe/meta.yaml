@@ -1,5 +1,5 @@
 {% set name = "pytest-xvfb" %}
-{% set version = "1.1.0" %}
+{% set version = "1.2.0" %}
 
 package:
   name: "{{ name|lower }}"
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 21576c6435613b98b21e8917c6c76654f5e6766df9003c5fec8cba7fd2eede21
+  sha256: a7544ca8d0c7c40db4b40d7a417a7b071c68d6ef6bdf9700872d7a167302f979
 
 build:
   skip: true  # [win]
@@ -29,7 +29,8 @@ test:
   imports:
     - pytest_xvfb
   commands:
-    - pytest --help
+    # skip this command in OS-X: https://github.com/conda-forge/pytest-xvfb-feedstock/issues/3
+    - pytest --help  # [not osx]
 
 about:
   home: https://github.com/The-Compiler/pytest-xvfb
