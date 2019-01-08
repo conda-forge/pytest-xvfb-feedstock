@@ -30,7 +30,7 @@ test:
     - pytest_xvfb
   commands:
     # skip this command in OS-X: https://github.com/conda-forge/pytest-xvfb-feedstock/issues/3
-    - pytest --help  # [unix]
+    - pytest --help  # [not osx]
 
 about:
   home: https://github.com/The-Compiler/pytest-xvfb
