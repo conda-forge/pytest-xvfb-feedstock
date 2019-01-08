@@ -29,7 +29,8 @@ test:
   imports:
     - pytest_xvfb
   commands:
-    - pytest --help
+    # skip this command in OS-X: https://github.com/conda-forge/pytest-xvfb-feedstock/issues/3
+    - pytest --help  # [unix]
 
 about:
   home: https://github.com/The-Compiler/pytest-xvfb
