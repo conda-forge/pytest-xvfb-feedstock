@@ -10,19 +10,19 @@ source:
   sha256: c4ba642de05499940db7f65ee111621939be513e3e75c3da9156b7235e2ed8cf
 
 build:
-  skip: true  # [win]
   number: 0
-  script: '{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv '
+  script: '{{ PYTHON }} -m pip install . --no-deps -vv '
+  noarch: python
 
 requirements:
   host:
     - pip
-    - python
+    - python >=3.5
     - setuptools
   run:
     - pytest >=2.8.1
-    - python
-    - pyvirtualdisplay >=0.2.1
+    - python >=3.5
+    - pyvirtualdisplay >=1.3
     - setuptools
 
 test:
