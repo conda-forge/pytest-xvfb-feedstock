@@ -1,18 +1,18 @@
 {% set name = "pytest-xvfb" %}
-{% set version = "1.2.0" %}
+{% set version = "2.0.0" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: a7544ca8d0c7c40db4b40d7a417a7b071c68d6ef6bdf9700872d7a167302f979
+  sha256: c4ba642de05499940db7f65ee111621939be513e3e75c3da9156b7235e2ed8cf
 
 build:
   skip: true  # [win]
-  number: 1000
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv "
+  number: 0
+  script: '{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv '
 
 requirements:
   host:
