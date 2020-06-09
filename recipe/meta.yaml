@@ -36,6 +36,8 @@ about:
   home: https://github.com/The-Compiler/pytest-xvfb
   license: MIT
   license_family: MIT
+  # license file included in the recipe for now:
+  # https://github.com/The-Compiler/pytest-xvfb/pull/26
   license_file: LICENSE
   summary: A pytest plugin to run Xvfb for tests.
 
