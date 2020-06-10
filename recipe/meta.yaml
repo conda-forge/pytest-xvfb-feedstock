@@ -1,28 +1,28 @@
 {% set name = "pytest-xvfb" %}
-{% set version = "1.2.0" %}
+{% set version = "2.0.0" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: a7544ca8d0c7c40db4b40d7a417a7b071c68d6ef6bdf9700872d7a167302f979
+  sha256: c4ba642de05499940db7f65ee111621939be513e3e75c3da9156b7235e2ed8cf
 
 build:
-  skip: true  # [win]
-  number: 1000
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv "
+  number: 0
+  script: '{{ PYTHON }} -m pip install . --no-deps -vv '
+  noarch: python
 
 requirements:
   host:
     - pip
-    - python
+    - python >=3.5
     - setuptools
   run:
     - pytest >=2.8.1
-    - python
-    - pyvirtualdisplay >=0.2.1
+    - python >=3.5
+    - pyvirtualdisplay >=1.3
     - setuptools
 
 test:
@@ -36,6 +36,8 @@ about:
   home: https://github.com/The-Compiler/pytest-xvfb
   license: MIT
   license_family: MIT
+  # license file included in the recipe for now:
+  # https://github.com/The-Compiler/pytest-xvfb/pull/26
   license_file: LICENSE
   summary: A pytest plugin to run Xvfb for tests.
 
