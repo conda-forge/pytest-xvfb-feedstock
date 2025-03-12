@@ -1,16 +1,16 @@
 {% set name = "pytest-xvfb" %}
-{% set version = "3.0.0" %}
+{% set version = "3.1.1" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 3746ab1f4d1159f03f751638d053689ccd284291b38b8fb03d3ebbe7bf69cfc0
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name | replace('-', '_') }}-{{ version }}.tar.gz
+  sha256: 90593634427d974b272e845793e4533f5b827c9d84c051879013624504175e44
 
 build:
-  number: 1
+  number: 0
   script: '{{ PYTHON }} -m pip install . --no-deps -vv '
   noarch: python
 
